@@ -19,4 +19,8 @@ public class CandidateService {
   public List<Canditate> findAll() {
     return repository.findAll();
   }
+
+  public Canditate findById(String id) {
+    return repository.findById(id).orElseThrow();
+  }
 }

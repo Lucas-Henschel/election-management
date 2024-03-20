@@ -1,10 +1,12 @@
 package infrastructure.repositories;
 
+import domain.CandidateQuery;
 import domain.CandidateRepository;
 import domain.Canditate;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;
+import java.util.Optional;
 
 @ApplicationScoped
 public class SQLCandidateRepository implements CandidateRepository {
@@ -13,7 +15,7 @@ public class SQLCandidateRepository implements CandidateRepository {
   }
 
   @Override
-  public List<Canditate> findAll() {
+  public List<Canditate> find(CandidateQuery query) {
     return List.of();
   }
 }
