@@ -23,47 +23,47 @@ class CandidateServiceTest {
 
   @Test
   void save() {
-    Canditate canditate = Instancio.create(Canditate.class);
-    service.save(canditate);
+    Candidate candidate = Instancio.create(Candidate.class);
+    service.save(candidate);
 
-    verify(repository).save(canditate);
+    verify(repository).save(candidate);
     verifyNoMoreInteractions(repository);
   }
 
   @Test
   void findAll() {
-    List<Canditate> canditates = Instancio.stream(Canditate.class).limit(10).toList();
-    when(repository.findAll()).thenReturn(canditates);
+    List<Candidate> candidates = Instancio.stream(Candidate.class).limit(10).toList();
+    when(repository.findAll()).thenReturn(candidates);
 
-    List<Canditate> result = service.findAll();
+    List<Candidate> result = service.findAll();
 
     verify(repository).findAll();
     verifyNoMoreInteractions(repository);
 
-    assertEquals(canditates, result);
+    assertEquals(candidates, result);
   }
 
   @Test
   void findById_whenCandidateIsFound_returnsCandidate() {
-    Canditate canditate = Instancio.create(Canditate.class);
-    when(repository.findById(canditate.id())).thenReturn(Optional.of(canditate));
+    Candidate candidate = Instancio.create(Candidate.class);
+    when(repository.findById(candidate.id())).thenReturn(Optional.of(candidate));
 
-    Canditate result = service.findById(canditate.id());
+    Candidate result = service.findById(candidate.id());
 
-    verify(repository).findById(canditate.id());
+    verify(repository).findById(candidate.id());
     verifyNoMoreInteractions(repository);
 
-    assertEquals(canditate, result);
+    assertEquals(candidate, result);
   }
 
   @Test
   void findById_whenCandidateIsNotFound_throwsException() {
-    Canditate canditate = Instancio.create(Canditate.class);
-    when(repository.findById(canditate.id())).thenReturn(Optional.empty());
+    Candidate candidate = Instancio.create(Candidate.class);
+    when(repository.findById(candidate.id())).thenReturn(Optional.empty());
 
-    assertThrows(NoSuchElementException.class, () -> service.findById(canditate.id()));
+    assertThrows(NoSuchElementException.class, () -> service.findById(candidate.id()));
 
-    verify(repository).findById(canditate.id());
+    verify(repository).findById(candidate.id());
     verifyNoMoreInteractions(repository);
   }
 

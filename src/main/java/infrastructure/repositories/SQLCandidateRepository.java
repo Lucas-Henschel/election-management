@@ -2,20 +2,19 @@ package infrastructure.repositories;
 
 import domain.CandidateQuery;
 import domain.CandidateRepository;
-import domain.Canditate;
+import domain.Candidate;
 import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.List;
-import java.util.Optional;
 
 @ApplicationScoped
 public class SQLCandidateRepository implements CandidateRepository {
   @Override
-  public void save(List<Canditate> canditates) {
+  public void save(List<Candidate> candidates) {
   }
 
   @Override
-  public List<Canditate> find(CandidateQuery query) {
+  public List<Candidate> find(CandidateQuery query) {
     return List.of();
   }
 }
