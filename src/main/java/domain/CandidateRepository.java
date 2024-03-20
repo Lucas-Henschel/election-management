@@ -5,18 +5,18 @@ import java.util.Optional;
 import java.util.Set;
 
 public interface CandidateRepository {
-  void save(List<Canditate> canditates);
-  default void save(Canditate canditate) {
-    save(List.of(canditate));
+  void save(List<Candidate> candidates);
+  default void save(Candidate candidate) {
+    save(List.of(candidate));
   }
 
-  List<Canditate> find(CandidateQuery query);
+  List<Candidate> find(CandidateQuery query);
 
-  default List<Canditate> findAll() {
+  default List<Candidate> findAll() {
     return find(new CandidateQuery.Builder().build());
   };
 
-  default Optional<Canditate> findById(String id) {
+  default Optional<Candidate> findById(String id) {
     CandidateQuery query = new CandidateQuery.Builder().ids(Set.of(id)).build();
     return find(query).stream().findFirst();
   };

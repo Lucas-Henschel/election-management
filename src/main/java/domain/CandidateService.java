@@ -12,15 +12,15 @@ public class CandidateService {
     this.repository = repository;
   }
 
-  public void save(Canditate canditate) {
-    repository.save(canditate);
+  public void save(Candidate candidate) {
+    repository.save(candidate);
   }
 
-  public List<Canditate> findAll() {
+  public List<Candidate> findAll() {
     return repository.findAll();
   }
 
-  public Canditate findById(String id) {
+  public Candidate findById(String id) {
     return repository.findById(id).orElseThrow();
   }
 }
