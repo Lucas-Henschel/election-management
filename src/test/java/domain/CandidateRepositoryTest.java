@@ -21,7 +21,6 @@ public abstract class CandidateRepositoryTest {
     assertTrue(result.isPresent());
     assertEquals(candidate, result.get());
   }
-  
   @Test
   void findAll() {
     List<Candidate> candidates = Instancio.stream(Candidate.class).limit(10).toList();
