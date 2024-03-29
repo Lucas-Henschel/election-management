@@ -33,11 +33,10 @@ public abstract class CandidateRepositoryTest {
 
   @Test
   void findByName() {
-    Candidate candidate1 = Instancio.create(Candidate.class);
-    Candidate candidate2 = Instancio.of(Candidate.class)
-      .set(field("familyName"), "Poiani").create();
+    var candidate1 = Instancio.create(Candidate.class);
+    var candidate2 = Instancio.of(Candidate.class).set(field("familyName"), "Poiani").create();
+    var query = new CandidateQuery.Builder().name("POI").build();
 
-    CandidateQuery query = new CandidateQuery.Builder().name("POI").build();
     repository().save(List.of(candidate1, candidate2));
 
     List<Candidate> result = repository().find(query);
